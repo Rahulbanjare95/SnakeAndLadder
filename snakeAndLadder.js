@@ -30,13 +30,4 @@ function simulateGame() {
     }
     console.log(playerPositionCurrent);
 }
-
-function playTillWinnerDeclared(){
-    while (true){
-        simulateGame();
-        if (playerPositionCurrent == WIN) {
-            break;
-    }
-}
-}
-playTillWinnerDeclared();
+simulateGame();
