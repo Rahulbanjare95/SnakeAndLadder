@@ -12,7 +12,10 @@ var lastplayer = 2;
 var playerOnePosition = START;
 var playerTwoPosition = START;
 var record = {};
-function simulateGame() {
+
+class SnakeAndLadder {
+
+ simulateGame() {
     diceFaceValue = Math.floor(Math.random() * 6 + 1);
     let playCases = Math.floor(Math.random() * 3);
     diceRoll++;
@@ -39,9 +42,9 @@ function simulateGame() {
 
 }
 
-function playTillWinnerDeclared() {
+playTillWinnerDeclared() {
     while (playerPositionCurrent != WIN) {
-        switchPlayers();
+        this.switchPlayers();
     }
     console.log("Player " + lastplayer + "won");
     console.log("Player positon when game won are :");
@@ -49,18 +52,20 @@ function playTillWinnerDeclared() {
     console.log("Total Dice rolls to declare winner is  " + diceRoll);
 }
 
-function switchPlayers() {
+switchPlayers() {
     if (lastplayer == 1) {
         lastplayer = 2;
         playerPositionCurrent = playerTwoPosition;
-        simulateGame();
+        this.simulateGame();
         playerTwoPosition = playerPositionCurrent;
     }
     else {
         lastplayer = 1;
         playerPositionCurrent = playerOnePosition;
-        simulateGame();
+        this.simulateGame();
         playerOnePosition = playerPositionCurrent;
     }
 }
-playTillWinnerDeclared();
+}
+module.exports = SnakeAndLadder;
+
