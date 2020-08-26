@@ -1,17 +1,15 @@
 console.log("welcome to snake and ladder");
 
-var playerStartPostion = 0;
+const START = 0;
+const WIN = 100;
 const NO_PLAY_CASE = 0;
 const LADDER_CASE = 1;
 const SNAKE_CASE = 2;
-
+let diceFaceValue;
 let playerPositionCurrent = 0;
 function simulateGame() {
-
-    let diceFaceValue = Math.floor(Math.random() * 6 + 1);
-    
+    diceFaceValue = Math.floor(Math.random() * 6 + 1);
     let playCases = Math.floor(Math.random()*3);
-
     switch (playCases) {
         case NO_PLAY_CASE:
             playerPositionCurrent = playerPositionCurrent;
@@ -24,5 +22,21 @@ function simulateGame() {
         default:
             break;
     }
+    if (playerPositionCurrent > WIN) {
+        playerPositionCurrent = playerPositionCurrent - diceFaceValue;
+    }
+    else if (playerPositionCurrent < START){
+        playerPositionCurrent = START;
+    }
+    console.log(playerPositionCurrent);
 }
-simulateGame();
+
+function playTillWinnerDeclared(){
+    while (true){
+        simulateGame();
+        if (playerPositionCurrent == WIN) {
+            break;
+    }
+}
+}
+playTillWinnerDeclared();
