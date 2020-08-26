@@ -1,4 +1,3 @@
-import snakeAndLadder from './snakeAndLadder';
-
-const snakeAndLadderObject = new snakeAndLadder();
-snakeAndLadderObject.playTillYouWin();
+const SnakeAndLadder = require('./snakeAndLadder');
+const snakeAndLadderObject = new SnakeAndLadder();
+snakeAndLadderObject.playTillWinnerDeclared();
